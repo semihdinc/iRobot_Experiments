@@ -12,11 +12,7 @@ bot.start()
 # This will still provide some protection
 bot.safe()
 
-# directly set the motor speeds ... move forward
-bot.drive_direct(100, 200)
-time.sleep(2)
-
-bot.drive_direct(-200, -200)
+bot.drive_direct(-500, -500)
 time.sleep(2)
 
 # Stop the bot
