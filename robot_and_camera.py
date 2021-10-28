@@ -7,22 +7,11 @@ import time
 
 port = "COM3"  # where is your serial port?
 bot = Create2(port)
-
-# Start the Create 2
 bot.start()
-
-# Put the Create2 into 'safe' mode so we can drive it
-# This will still provide some protection
 bot.safe()
 
-# You are responsible for handling issues, no protection/safety in
-# this mode ... becareful
-bot.full()
-
 #-------------------------------------------------------------------
-
-# Create a pipeline
-pipeline = rs.pipeline()
+pipeline = rs.pipeline() # Create a pipeline
 
 # Create a config and configure the pipeline to stream
 #  different resolutions of color and depth streams
@@ -58,13 +47,10 @@ depth_sensor = profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 
 # We will be removing the background of objects more than
-#  clipping_distance_in_meters meters away
 clipping_distance_in_meters = 2 #1 meter
 clipping_distance = clipping_distance_in_meters / depth_scale
 
 # Create an align object
-# rs.align allows us to perform alignment of depth frames to others frames
-# The "align_to" is the stream type to which we plan to align depth frames.
 align_to = rs.stream.color
 align = rs.align(align_to)
 
@@ -73,13 +59,12 @@ try:
     while True:
         # Get frameset of color and depth
         frames = pipeline.wait_for_frames()
-        # frames.get_depth_frame() is a 640x360 depth image
 
         # Align the depth frame to color frame
         aligned_frames = align.process(frames)
 
         # Get aligned frames
-        aligned_depth_frame = aligned_frames.get_depth_frame() # aligned_depth_frame is a 640x480 depth image
+        aligned_depth_frame = aligned_frames.get_depth_frame()
         color_frame = aligned_frames.get_color_frame()
 
         # Validate that both frqames are valid
@@ -112,11 +97,13 @@ try:
                 cv.FONT_HERSHEY_SIMPLEX, 
                 0.5, (255,0,0), 2)
         
-            if dist < 70:
-                bot.drive_direct(5, 5)
-                time.sleep(0.5)
+            if dist < 120:
+                bot.drive_direct(50, 50)
+                time.sleep(1)
+                print("Distance= " + str(dist) + " cm. Moving!")
             else:
                 bot.drive_stop()
+                print("stopped")
     
         # Remove background - Set pixels further than clipping_distance to grey
         #grey_color = 153
