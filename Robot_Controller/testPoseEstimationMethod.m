@@ -1,23 +1,18 @@
-function [qs, qrs] = testPoseEstimationMethod(visionSystem,nl,N)
+q = [-32;-2;0]; %initial pose
 
-%     visionSystem = str2func(poseEstFunc);
-    q = [-32;-2;0];
+t = 0:0.15:20; %The simulation runs 20 secs
 
-    t = 0:0.15:20; %The simulation runs 20 secs
-    for iter=1:size(t,2)
-        [qr, ur] = desiredPath(t(iter));
+for iter=1:size(t,2)
+    [qr, ur] = desiredPath(t(iter));
 
-        %This part will be different for all methods
-    %     qtilde = visionSystemMirage(q,qr);
-        qtilde = visionSystem(q,qr,nl,N);
+    qtilde = q - qr;
 
-        %Controller and Robot Part
-        u = controller(qtilde,qr,ur);
-        qdot = kinematicModel(u,q);
-        q = q + qdot;
+    %Controller and Robot Part
+    u = controller(qtilde,qr,ur);
 
-        %Save pose parameters
-        qs(iter,:) = q;
-        qrs(iter,:) = qr;
-    end
+    %Robot moves qdot amount according to the kinematic model
+    qdot = kinematicModel(u,q);
+
+    %new position of the robot
+    q = q + qdot;
 end
