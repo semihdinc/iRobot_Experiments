@@ -12,8 +12,14 @@ bot.start()
 # This will still provide some protection
 bot.safe()
 
-bot.drive_direct(-500, -500)
-time.sleep(2)
+
+for i in range(10):
+    if i % 2 == 0:
+        bot.drive_direct(100, 100)
+    else:
+        bot.drive_direct(-100, -100)
+    
+    time.sleep(0.1)
 
 # Stop the bot
 bot.drive_stop()
