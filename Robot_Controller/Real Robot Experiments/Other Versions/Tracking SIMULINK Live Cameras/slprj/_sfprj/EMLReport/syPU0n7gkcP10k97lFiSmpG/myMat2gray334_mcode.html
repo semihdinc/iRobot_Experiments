@@ -1,0 +1,17 @@
+<!-- saved from url=(0014)about:internet -->
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="1,70" id="srcline70">70</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="1,71" id="srcline71">71</a></span><span class="line"><span class="keyword">function</span> <span class="var type1" id="S33T148U338">imgOut</span> = myMat2gray(<span class="var type1" id="S34T39U341">imgIn</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="1,72" id="srcline72">72</a></span><span class="line">    <span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,73" id="srcline73">73</a></span><span class="line">    <span class="mxinfo " id="T148:U3"><span class="var type1" id="S34T148U344">imgIn</span> = <span class="mxinfo " id="T148:U5">double(<span class="var type1" id="S34T39U347">imgIn</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="1,74" id="srcline74">74</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,75" id="srcline75">75</a></span><span class="line">    <span class="mxinfo " id="T2:U7"><span class="var type1" id="S36T2U350">minL</span> = <span class="mxinfo " id="T2:U9">min(<span class="mxinfo " id="T149:U10"><span class="var type1" id="S34T148U354">imgIn</span>(:)</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="1,76" id="srcline76">76</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,77" id="srcline77">77</a></span><span class="line">    <span class="mxinfo " id="T148:U12"><span class="var type1" id="S38T148U358">imgTmp</span> = (<span class="mxinfo " id="T148:U14"><span class="var type1" id="S34T148U361">imgIn</span> - <span class="var type1" id="S36T2U362">minL</span></span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="1,78" id="srcline78">78</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,79" id="srcline79">79</a></span><span class="line">    <span class="mxinfo " id="T2:U17"><span class="var type1" id="S39T2U365">maxL</span> = <span class="mxinfo " id="T2:U19">max(<span class="mxinfo " id="T149:U20"><span class="var type1" id="S38T148U369">imgTmp</span>(:)</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="1,80" id="srcline80">80</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,81" id="srcline81">81</a></span><span class="line">    <span class="mxinfo " id="T148:U22"><span class="var type1" id="S33T148U373">imgOut</span> = <span class="mxinfo " id="T148:U24"><span class="var type1" id="S38T148U375">imgTmp</span>/<span class="var type1" id="S39T2U376">maxL</span></span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="1,82" id="srcline82">82</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,83" id="srcline83">83</a></span><span class="line"></span></span>
+</pre>

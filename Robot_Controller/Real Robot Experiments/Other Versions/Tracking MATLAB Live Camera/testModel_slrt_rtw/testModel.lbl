@@ -1,0 +1,9 @@
+const SortedBlockIOSignals testModel_LBL[] =
+  {
+    {
+      0,0,7
+    },
+    {
+      -1, -1,7
+    }
+  };

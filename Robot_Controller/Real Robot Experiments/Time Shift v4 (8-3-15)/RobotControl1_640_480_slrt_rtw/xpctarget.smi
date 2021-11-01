@@ -1,0 +1,17 @@
+#include "RobotControl1_640_480.bio"
+#include "RobotControl1_640_480.lbl"
+#include "RobotControl1_640_480.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {RobotControl1_640_480_BIO},
+      {RobotControl1_640_480_SID},
+      {RobotControl1_640_480_LBL},
+      "",
+      "RobotControl1_640_480",
+      0,
+      1843325,
+    },
+  };

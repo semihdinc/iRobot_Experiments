@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Pose Error </Name>
+    <xPCName>mirageTrackingRobot/Pose Error </xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Calculate Target Points</Name>
+    <xPCName>mirageTrackingRobot/Calculate Target Points</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>Estimate Pose Error</Name>
+    <xPCName>mirageTrackingRobot/Estimate Pose Error</xPCName>
+    
+    
+    </SubSystem>
+
+      
+
+
+
+ 
+            <block>
+            <blkName>Desired Robot Pose</blkName>
+            <xpcblkName>Desired Robot Pose</xpcblkName>
+            <SLblockPath>mirageTrackingRobot/Desired Robot Pose</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 6]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Object Model</blkName>
+            <xpcblkName>Object Model</xpcblkName>
+            <SLblockPath>mirageTrackingRobot/Object Model</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[4, 4]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>From Left Camera</blkName>
+            <xpcblkName>From Left Camera</xpcblkName>
+            <SLblockPath>mirageTrackingRobot/From Left Camera</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 2]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>From Right Camera</blkName>
+            <xpcblkName>From Right Camera</xpcblkName>
+            <SLblockPath>mirageTrackingRobot/From Right Camera</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 2]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Calculate Target Points/p1</sigName>
+              <xpcsigName>Calculate Target Points/p1</xpcsigName>
+              <sigWidth>8</sigWidth>
+              <sigDim>[2, 4]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Calculate Target Points/p2</sigName>
+              <xpcsigName>Calculate Target Points/p2</xpcsigName>
+              <sigWidth>8</sigWidth>
+              <sigDim>[2, 4]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Estimate Pose Error</sigName>
+              <xpcsigName>Estimate Pose Error</xpcsigName>
+              <sigWidth>6</sigWidth>
+              <sigDim>[6, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>From Left Camera</sigName>
+              <xpcsigName>From Left Camera</xpcsigName>
+              <sigWidth>3686400</sigWidth>
+              <sigDim>[960, 1280, 3]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>From Right Camera</sigName>
+              <xpcsigName>From Right Camera</xpcsigName>
+              <sigWidth>3686400</sigWidth>
+              <sigDim>[960, 1280, 3]</sigDim>
+            </signal>
+
+</Root>

@@ -1,0 +1,2 @@
+function child=testref
+child = [];

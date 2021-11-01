@@ -1,0 +1,14 @@
+#include "RobotControl1_640_480.pt"
+
+
+const xpc_ParamMappingInfo  xpcparamsMMI[] =
+  {
+    {
+      {RobotControl1_640_480_PT},
+      "RobotControl1_640_480",
+      "",
+      "RobotControl1_640_480",
+      0,
+      55,
+    },
+  };

@@ -1,0 +1,14 @@
+#include "RobotControl1.pt"
+
+
+const xpc_ParamMappingInfo  xpcparamsMMI[] =
+  {
+    {
+      {RobotControl1_PT},
+      "RobotControl1",
+      "",
+      "RobotControl1",
+      0,
+      30,
+    },
+  };

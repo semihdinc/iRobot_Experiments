@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Open-loop control</Name>
+    <xPCName>RobotControl1/Open-loop control</xPCName>
+        <SubSystem>
+    <Name>control time</Name>
+    <xPCName>RobotControl1/Open-loop control/control time</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>output 2 - L</Name>
+    <xPCName>RobotControl1/Open-loop control/output 2 - L</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>output 2 - L1</Name>
+    <xPCName>RobotControl1/Open-loop control/output 2 - L1</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>plant</Name>
+    <xPCName>RobotControl1/Open-loop control/plant</xPCName>
+        <SubSystem>
+    <Name>Send Serial Packet to Servo Controller
+And recieve status message from SSC</Name>
+    <xPCName>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC</xPCName>
+        <SubSystem>
+    <Name>CheckSum</Name>
+    <xPCName>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/CheckSum</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>Embedded
+MATLAB Function</Name>
+    <xPCName>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Embedded MATLAB Function</xPCName>
+    
+    
+    </SubSystem>
+
+    
+
+
+ 
+            <block>
+            <blkName>Count</blkName>
+            <xpcblkName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Count</xpcblkName>
+            <SLblockPath>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Count</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>ID</blkName>
+            <xpcblkName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/ID</xpcblkName>
+            <SLblockPath>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/ID</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>SYNC 0</blkName>
+            <xpcblkName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/SYNC 0</xpcblkName>
+            <SLblockPath>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/SYNC 0</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>SYNC 1</blkName>
+            <xpcblkName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/SYNC 1</xpcblkName>
+            <SLblockPath>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/SYNC 1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+ 
+            <block>
+            <blkName>RS232
+Binary Send1</blkName>
+            <xpcblkName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/RS232 Binary Send1</xpcblkName>
+            <SLblockPath>RobotControl1/Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/RS232 Binary Send1</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>CheckSum/p1</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/CheckSum/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>CheckSum/p2</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/CheckSum/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Embedded
+MATLAB Function</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Embedded MATLAB Function</xpcsigName>
+              <sigWidth>22</sigWidth>
+              <sigDim>[22, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p1</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p2</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p3</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p4</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p5</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p6</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p7</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Byte Reversal/p8</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Byte Reversal/p8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Pack</sigName>
+              <xpcsigName>Open-loop control/plant/Send Serial Packet to Servo Controller And recieve status message from SSC/Pack</xpcsigName>
+              <sigWidth>22</sigWidth>
+              <sigDim>[22, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>pulse transformer camera</Name>
+    <xPCName>RobotControl1/Open-loop control/plant/pulse transformer camera</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>pulse transformer1</Name>
+    <xPCName>RobotControl1/Open-loop control/plant/pulse transformer1</xPCName>
+    
+    
+    </SubSystem>
+
+    
+
+
+
+ 
+            <block>
+            <blkName>Servo1</blkName>
+            <xpcblkName>Open-loop control/plant/Servo1</xpcblkName>
+            <SLblockPath>RobotControl1/Open-loop control/plant/Servo1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>pulse transformer camera/p1</sigName>
+              <xpcsigName>Open-loop control/plant/pulse transformer camera/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>pulse transformer camera/p2</sigName>
+              <xpcsigName>Open-loop control/plant/pulse transformer camera/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>pulse transformer1/p1</sigName>
+              <xpcsigName>Open-loop control/plant/pulse transformer1/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>pulse transformer1/p2</sigName>
+              <xpcsigName>Open-loop control/plant/pulse transformer1/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>
+MATLAB Function1</Name>
+    <xPCName>RobotControl1/Open-loop control/ MATLAB Function1</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>Camera Servos Function</Name>
+    <xPCName>RobotControl1/Open-loop control/Camera Servos Function</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>MATLAB Function 2</Name>
+    <xPCName>RobotControl1/Open-loop control/MATLAB Function 2</xPCName>
+    
+    
+    </SubSystem>
+
+    
+
+
+
+
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>
+MATLAB Function1/p1</sigName>
+              <xpcsigName>Open-loop control/ MATLAB Function1/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>
+MATLAB Function1/p2</sigName>
+              <xpcsigName>Open-loop control/ MATLAB Function1/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Camera Servos Function/p1</sigName>
+              <xpcsigName>Open-loop control/Camera Servos Function/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Camera Servos Function/p2</sigName>
+              <xpcsigName>Open-loop control/Camera Servos Function/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>MATLAB Function 2/p1</sigName>
+              <xpcsigName>Open-loop control/MATLAB Function 2/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>MATLAB Function 2/p2</sigName>
+              <xpcsigName>Open-loop control/MATLAB Function 2/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Read</Name>
+    <xPCName>RobotControl1/Read</xPCName>
+    
+    
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Data Store
+Read</sigName>
+              <xpcsigName>Read/Data Store Read</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Scope (xPC) </Name>
+    <xPCName>RobotControl1/Scope (xPC) </xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Status Extraction</Name>
+    <xPCName>RobotControl1/Status Extraction</xPCName>
+        <SubSystem>
+    <Name>Command State</Name>
+    <xPCName>RobotControl1/Status Extraction/Command State</xPCName>
+    
+    
+    </SubSystem>
+
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Command State</sigName>
+              <xpcsigName>Status Extraction/Command State</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p1</sigName>
+              <xpcsigName>Status Extraction/Unpack/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p2</sigName>
+              <xpcsigName>Status Extraction/Unpack/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p3</sigName>
+              <xpcsigName>Status Extraction/Unpack/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p4</sigName>
+              <xpcsigName>Status Extraction/Unpack/p4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p5</sigName>
+              <xpcsigName>Status Extraction/Unpack/p5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p6</sigName>
+              <xpcsigName>Status Extraction/Unpack/p6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p7</sigName>
+              <xpcsigName>Status Extraction/Unpack/p7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unpack/p8</sigName>
+              <xpcsigName>Status Extraction/Unpack/p8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Write</Name>
+    <xPCName>RobotControl1/Write</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>status</Name>
+    <xPCName>RobotControl1/status</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>status checker</Name>
+    <xPCName>RobotControl1/status checker</xPCName>
+    
+    
+    </SubSystem>
+
+      
+ 
+            <block>
+            <blkName>Data Store
+Memory</blkName>
+            <xpcblkName>Data Store Memory</xpcblkName>
+            <SLblockPath>RobotControl1/Data Store Memory</SLblockPath>
+            <isSrc>[0 0 0]</isSrc>
+          <parameter>
+          <paramName>InitialValue</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+
+
+
+
+
+
+ 
+            <block>
+            <blkName>packet size</blkName>
+            <xpcblkName>packet size</xpcblkName>
+            <SLblockPath>RobotControl1/packet size</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>packet size4</blkName>
+            <xpcblkName>packet size4</xpcblkName>
+            <SLblockPath>RobotControl1/packet size4</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>RS232
+Binary Receive1</blkName>
+            <xpcblkName>RS232 Binary Receive1</xpcblkName>
+            <SLblockPath>RobotControl1/RS232 Binary Receive1</SLblockPath>
+            <isSrc>[0 2 2]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>RS232 Setup </blkName>
+            <xpcblkName>RS232 Setup </xpcblkName>
+            <SLblockPath>RobotControl1/RS232 Setup </SLblockPath>
+            <isSrc>[0 0 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P9</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P12</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P15</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P16</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P17</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P18</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>P19</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+ 
+            <block>
+            <blkName>Unit Delay</blkName>
+            <xpcblkName>Unit Delay</xpcblkName>
+            <SLblockPath>RobotControl1/Unit Delay</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Unit Delay1</blkName>
+            <xpcblkName>Unit Delay1</xpcblkName>
+            <SLblockPath>RobotControl1/Unit Delay1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>status checker</sigName>
+              <xpcsigName>status checker</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>packet size</sigName>
+              <xpcsigName>packet size</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>packet size4</sigName>
+              <xpcsigName>packet size4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>RS232
+Binary Receive1/p1</sigName>
+              <xpcsigName>RS232 Binary Receive1/p1</xpcsigName>
+              <sigWidth>8</sigWidth>
+              <sigDim>[8, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Add</sigName>
+              <xpcsigName>Add</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unit Delay</sigName>
+              <xpcsigName>Unit Delay</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Unit Delay1</sigName>
+              <xpcsigName>Unit Delay1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+</Root>

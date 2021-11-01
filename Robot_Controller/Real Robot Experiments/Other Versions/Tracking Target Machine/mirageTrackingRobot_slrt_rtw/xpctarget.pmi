@@ -1,0 +1,14 @@
+#include "mirageTrackingRobot.pt"
+
+
+const xpc_ParamMappingInfo  xpcparamsMMI[] =
+  {
+    {
+      {mirageTrackingRobot_PT},
+      "mirageTrackingRobot",
+      "",
+      "mirageTrackingRobot",
+      0,
+      19,
+    },
+  };

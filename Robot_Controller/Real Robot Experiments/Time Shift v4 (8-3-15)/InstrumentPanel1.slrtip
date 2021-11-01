@@ -1,0 +1,111 @@
+
+  <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InstrumentPanel1" children="Controls">
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label7" children="Controls">
+      <Property name="Text">T</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">42, 238</Property>
+      <Property name="Name">Label7</Property>
+      <Property name="Size">100, 23</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry7" children="Controls">
+      <Property name="BindingSrcPath">Open-loop control/Vision System/T/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="Value">36</Property>
+      <Property name="Location">157, 238</Property>
+      <Property name="Name">NumericalUpDownEntry7</Property>
+      <Property name="Size">120, 23</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label5" children="Controls">
+      <Property name="Text">PWM_R</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">42, 173</Property>
+      <Property name="Name">Label5</Property>
+      <Property name="Size">100, 23</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label6" children="Controls">
+      <Property name="Text">PWM_L</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">42, 144</Property>
+      <Property name="Name">Label6</Property>
+      <Property name="Size">100, 23</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry5" children="Controls">
+      <Property name="BindingSrcPath">Open-loop control/PWM_R/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="Maximum">50</Property>
+      <Property name="Value">10</Property>
+      <Property name="Location">157, 173</Property>
+      <Property name="Name">NumericalUpDownEntry5</Property>
+      <Property name="Size">120, 23</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry6" children="Controls">
+      <Property name="BindingSrcPath">Open-loop control/PWM_L/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="Maximum">50</Property>
+      <Property name="Value">20</Property>
+      <Property name="Location">157, 144</Property>
+      <Property name="Name">NumericalUpDownEntry6</Property>
+      <Property name="Size">120, 23</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label3" children="Controls">
+      <Property name="Text">ks (theta angle)</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">42, 94</Property>
+      <Property name="Name">Label3</Property>
+      <Property name="Size">100, 23</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2" children="Controls">
+      <Property name="Text">k (y direction)</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">42, 65</Property>
+      <Property name="Name">Label2</Property>
+      <Property name="Size">100, 23</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label1" children="Controls">
+      <Property name="Text">kx (x direction)</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">42, 36</Property>
+      <Property name="Name">Label1</Property>
+      <Property name="Size">100, 23</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry3" children="Controls">
+      <Property name="BindingSrcPath">Open-loop control/Vision System/ks/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="DecimalPlaces">2</Property>
+      <Property name="Increment">0.1</Property>
+      <Property name="Maximum">2</Property>
+      <Property name="Value">1.3</Property>
+      <Property name="Location">157, 94</Property>
+      <Property name="Name">NumericalUpDownEntry3</Property>
+      <Property name="Size">120, 23</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry2" children="Controls">
+      <Property name="BindingSrcPath">Open-loop control/Vision System/k/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="DecimalPlaces">2</Property>
+      <Property name="Increment">0.1</Property>
+      <Property name="Maximum">2</Property>
+      <Property name="Value">1</Property>
+      <Property name="Location">157, 65</Property>
+      <Property name="Name">NumericalUpDownEntry2</Property>
+      <Property name="Size">120, 23</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry1" children="Controls">
+      <Property name="BindingSrcPath">Open-loop control/Vision System/kx/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="DecimalPlaces">2</Property>
+      <Property name="Increment">0.01</Property>
+      <Property name="Maximum">2</Property>
+      <Property name="Value">0.23</Property>
+      <Property name="Location">157, 36</Property>
+      <Property name="Name">NumericalUpDownEntry1</Property>
+      <Property name="Size">120, 23</Property>
+    </Object>
+    <Property name="ClientSize">1440, 900</Property>
+  </Object>

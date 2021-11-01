@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Write to Com3</Name>
+    <xPCName>gen/Write to Com3</xPCName>
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+    </SubSystem>
+    <SubSystem>
+    <Name>Sort for plotting</Name>
+    <xPCName>gen/Sort for plotting</xPCName>
+    
+    
+    </SubSystem>
+
+      
+
+
+ 
+            <block>
+            <blkName>Altitude</blkName>
+            <xpcblkName>Altitude</xpcblkName>
+            <SLblockPath>gen/Altitude</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Altitude1</blkName>
+            <xpcblkName>Altitude1</xpcblkName>
+            <SLblockPath>gen/Altitude1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Altitude2</blkName>
+            <xpcblkName>Altitude2</xpcblkName>
+            <SLblockPath>gen/Altitude2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Latitude</blkName>
+            <xpcblkName>Latitude</xpcblkName>
+            <SLblockPath>gen/Latitude</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Latitude1</blkName>
+            <xpcblkName>Latitude1</xpcblkName>
+            <SLblockPath>gen/Latitude1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Latitude2</blkName>
+            <xpcblkName>Latitude2</xpcblkName>
+            <SLblockPath>gen/Latitude2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Longitude</blkName>
+            <xpcblkName>Longitude</xpcblkName>
+            <SLblockPath>gen/Longitude</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Longitude1</blkName>
+            <xpcblkName>Longitude1</xpcblkName>
+            <SLblockPath>gen/Longitude1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Longitude2</blkName>
+            <xpcblkName>Longitude2</xpcblkName>
+            <SLblockPath>gen/Longitude2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p1</sigName>
+              <xpcsigName>Sort for plotting/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p2</sigName>
+              <xpcsigName>Sort for plotting/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p3</sigName>
+              <xpcsigName>Sort for plotting/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p4</sigName>
+              <xpcsigName>Sort for plotting/p4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p5</sigName>
+              <xpcsigName>Sort for plotting/p5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p6</sigName>
+              <xpcsigName>Sort for plotting/p6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p7</sigName>
+              <xpcsigName>Sort for plotting/p7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p8</sigName>
+              <xpcsigName>Sort for plotting/p8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sort for plotting/p9</sigName>
+              <xpcsigName>Sort for plotting/p9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+</Root>

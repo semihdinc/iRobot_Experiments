@@ -1,0 +1,17 @@
+#include "RobotControl1.bio"
+#include "RobotControl1.lbl"
+#include "RobotControl1.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {RobotControl1_BIO},
+      {RobotControl1_SID},
+      {RobotControl1_LBL},
+      "",
+      "RobotControl1",
+      0,
+      88,
+    },
+  };

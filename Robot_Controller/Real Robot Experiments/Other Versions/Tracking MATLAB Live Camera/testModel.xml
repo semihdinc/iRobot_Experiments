@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>Scope 1</Name>
+    <xPCName>testModel/Scope 1</xPCName>
+    
+    
+
+
+    
+    
+
+
+    </SubSystem>
+
+      
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>From File</sigName>
+              <xpcsigName>From File</xpcsigName>
+              <sigWidth>7</sigWidth>
+              <sigDim>[7, 1]</sigDim>
+            </signal>
+
+</Root>

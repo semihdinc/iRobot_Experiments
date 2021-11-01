@@ -1,0 +1,17 @@
+#include "mirageTrackingRobot.bio"
+#include "mirageTrackingRobot.lbl"
+#include "mirageTrackingRobot.sid"
+
+
+const xpc_SigMappingInfo xpcMMI[] =
+  {
+    {
+      {mirageTrackingRobot_BIO},
+      {mirageTrackingRobot_SID},
+      {mirageTrackingRobot_LBL},
+      "",
+      "mirageTrackingRobot",
+      0,
+      7372821,
+    },
+  };

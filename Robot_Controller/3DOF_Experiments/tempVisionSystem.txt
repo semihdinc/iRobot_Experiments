@@ -1,0 +1,54 @@
+function qtilde  = error(q,qr)
+%#codegen
+
+%Camera System simulation
+%Takes the position of the robot in I space and returns left and right
+%target pixel values.
+%In real application L_p and R_p will come from physical camera system.
+
+qEx = [q(1) q(2) 0 0 0 q(3)];
+qrEx = [qr(1) qr(2) 0 0 0 qr(3)];
+
+[L_p, R_p] = getPixelsV4(qEx);
+
+p1x = 0;
+p1y = 0;
+p1z = 0;
+
+P = zeros(4,4);
+P(:,1) = [p1x, p1y, p1z, 1];
+P(:,2) = [p1x, p1y+8, p1z, 1];
+P(:,3) = [p1x+8, p1y+4, p1z+3, 1];
+P(:,4) = [p1x, p1y+4, p1z+8, 1];
+
+%Desired Robot Pose for current step qr()
+DesRobotPose.x = qrEx(1);
+DesRobotPose.y = qrEx(2);
+DesRobotPose.z = qrEx(3);
+DesRobotPose.phi = qrEx(4);
+DesRobotPose.theta = qrEx(5);
+DesRobotPose.psi = qrEx(6);
+
+%Transform target points from I space into Desired Robot Space
+SDes_E_I = inv(EulerTrans(DesRobotPose));
+S_PDes = SDes_E_I*P;
+
+%Calculate the error parameters for current step
+param = visioMotor(S_PDes,L_p,R_p);
+
+sol = eye(4,4);
+sol(1:3,:) = reshape(param,3,4);
+
+I_E_S = sol*SDes_E_I;
+
+[phi theta psi] = get3DRotationAngles((I_E_S(1:3,1:3)));
+
+qtilde = zeros(3,1);
+
+qtilde(1) = -I_E_S(1,4) - qr(1);
+qtilde(2) = -I_E_S(2,4) - qr(2);
+qtilde(3) = -psi      - qr(3);
+
+% qtilde = q - qr;
+
+
