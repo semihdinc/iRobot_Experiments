@@ -7,7 +7,7 @@ Created on Mon Nov  1 12:55:30 2021
 
 import numpy as np
 
-#%% Here we define the desired path function ------------------
+#%% Here we define the Circular desired path function ------------------
 
 def desiredPathCircle(t):
     x0 = 100 #100 cm radius circular motion
@@ -21,6 +21,16 @@ def desiredPathCircle(t):
     qr = [xr,yr,thetar]
     return qr
 
+#%% Here we define the Sin Wave desired path function ------------------
+
+def desiredPathSineWave(t):    
+    thetar = t*(2*np.pi/36)
+
+    xr = t*5 #robot will move 0.5 cm in x direction for every 0.1 seconds
+    yr = np.sin(thetar) * 20 #robot will move between -20 cm and 20 cm in y
+    
+    qr = [xr,yr,thetar]
+    return qr
 
 #%% Here we create the desired path for simulation -----------
 
