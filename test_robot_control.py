@@ -6,6 +6,7 @@ Created on Mon Nov  1 12:55:30 2021
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 #%% Here we define the Circular desired path function ------------------
 
@@ -41,31 +42,35 @@ simulation_time = np.arange(0,36,0.1)
 #desired pose (trajectory) of the vehicle in every time instant
 qr = np.zeros([3,np.size(simulation_time)])
 for idx, t in enumerate(simulation_time):
-    qr[:,idx] = desiredPathCircle(t);
+    #qr[:,idx] = desiredPathCircle(t);
+    qr[:,idx] = desiredPathSineWave(t);
+
+plt.plot(qr[0,:],qr[1,:])
 
 #%% -----------------------------------------------------------
-from  pycreate2 import Create2
-import time
 
-bot = Create2("COM3")
+# from  pycreate2 import Create2
+# import time
 
-bot.start() # Start the Create 2
-bot.safe()
+# bot = Create2("COM3")
 
-l = 23.5    #Wheel base of vehicle = 23.5 cm
-R = 50      #Distance to the rotational center in cm
+# bot.start() # Start the Create 2
+# bot.safe()
 
-#we calculate velocity instructions of left and right wheel
-# Vr/Vl cm must be travelled in every 0.1 seconds
-for idx, val in enumerate(simulation_time,1):
-    Vr = (R + l/2)*(qr[2,idx-1]-qr[2,idx-2]) 
-    Vl = (R - l/2)*(qr[2,idx-1]-qr[2,idx-2])
-    bot.drive_direct(10*Vr, 10*Vl)
-    time.sleep(0.1) #robot will go 10*V mm for 0.1 sec
+# l = 23.5    #Wheel base of vehicle = 23.5 cm
+# R = 50      #Distance to the rotational center in cm
 
-# Stop the bot
-bot.drive_stop()
+# #we calculate velocity instructions of left and right wheel
+# # Vr/Vl cm must be travelled in every 0.1 seconds
+# for idx, val in enumerate(simulation_time,1):
+#     Vr = (R + l/2)*(qr[2,idx-1]-qr[2,idx-2]) 
+#     Vl = (R - l/2)*(qr[2,idx-1]-qr[2,idx-2])
+#     bot.drive_direct(10*Vr, 10*Vl)
+#     time.sleep(0.1) #robot will go 10*V mm for 0.1 sec
 
-bot.power() #go back to passive mode
-bot.stop() #Puts the Create 2 into OFF mode.
-bot.close() # Close the connection
+# # Stop the bot
+# bot.drive_stop()
+
+# bot.power() #go back to passive mode
+# bot.stop() #Puts the Create 2 into OFF mode.
+# bot.close() # Close the connection
