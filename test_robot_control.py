@@ -6,6 +6,7 @@ Created on Mon Nov  1 12:55:30 2021
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 #%% Here we define the Circular desired path function ------------------
 
@@ -49,15 +50,19 @@ simulation_time = np.arange(0,totalTime,1)
 qr = np.zeros([5,np.size(simulation_time)])
 for idx, t in enumerate(simulation_time):
     qr[:,idx] = desiredPathCircle(t,totalTime);
+    #qr[:,idx] = desiredPathSineWave(t);
+
 
 #%% -----------------------------------------------------------
-from  pycreate2 import Create2
-import time
 
-bot = Create2("COM3")
+# from  pycreate2 import Create2
+# import time
 
-bot.start() # Start the Create 2
-bot.safe()
+# bot = Create2("COM3")
+
+# bot.start() # Start the Create 2
+# bot.safe()
+
 
 l = 235     #Wheel base of vehicle in mm
 R = 300     #Distance to the rotational center in mm
@@ -74,9 +79,21 @@ for idx, val in enumerate(simulation_time[1:],1):
     bot.drive_direct(int(Vr), int(Vl))
     time.sleep(1) #robot will go V mm for 0.9 sec
 
-# Stop the bot
-bot.drive_stop()
+# l = 23.5    #Wheel base of vehicle = 23.5 cm
+# R = 50      #Distance to the rotational center in cm
 
-bot.power() #go back to passive mode
-bot.stop() #Puts the Create 2 into OFF mode.
-bot.close() # Close the connection
+# #we calculate velocity instructions of left and right wheel
+# # Vr/Vl cm must be travelled in every 0.1 seconds
+# for idx, val in enumerate(simulation_time,1):
+#     Vr = (R + l/2)*(qr[2,idx-1]-qr[2,idx-2]) 
+#     Vl = (R - l/2)*(qr[2,idx-1]-qr[2,idx-2])
+#     bot.drive_direct(10*Vr, 10*Vl)
+#     time.sleep(0.1) #robot will go 10*V mm for 0.1 sec
+
+
+# # Stop the bot
+# bot.drive_stop()
+
+# bot.power() #go back to passive mode
+# bot.stop() #Puts the Create 2 into OFF mode.
+# bot.close() # Close the connection
