@@ -23,7 +23,6 @@ def kinematicModel(u,q):
 
 
 #%% Here we define the Sin Wave desired path function ------------------
-
 def desiredPathSineWave(t,totalSim):    
     yWidth = 300
     xWidth = 50
@@ -50,7 +49,6 @@ def desiredPathSineWave(t,totalSim):
     return qr
 
 #%% Here we define the Circular desired path function ------------------
-
 def desiredPathCircle(t,totalSim):
     x0 = 500 #mm radius circular motion
     y0 = 0
@@ -83,35 +81,47 @@ for idx, t in enumerate(simulation_time):
     qr[:,idx] = desiredPathSineWave(t,totalTime);
 
 
-#%% -----------------------------------------------------------
 
-from  pycreate2 import Create2
-import time
+#%% --- Simulations of the Robot -------------------------------
 
-bot = Create2("COM3")
-
-bot.start() # Start the Create 2
-bot.safe()
-
-l = 235     #Wheel base of vehicle in mm
-
-#we calculate velocity instructions of left and right wheel
-# Vr/Vl cm must be travelled in every 0.1 seconds
-for idx, val in enumerate(simulation_time):
-    v = qr[3,idx]
-    omega = qr[4,idx]
+# qSave = np.zeros([3,np.size(simulation_time)])
+# q = [0,0,0.56]
+# for idx, t in enumerate(simulation_time):
+#     ur = [qr[3,idx], qr[4,idx]]
+#     qdot = kinematicModel(ur,q)
     
-    Vl = v - omega*l/2 
-    Vr = v + omega*l/2 
+#     q = q + qdot
+#     qSave [:,idx]= q
 
-    print([idx, val, Vl, Vr])
+#%% --- Actual Robot Experiments -------------------------------
+
+# from  pycreate2 import Create2
+# import time
+
+# bot = Create2("COM3")
+
+# bot.start() # Start the Create 2
+# bot.safe()
+
+# l = 235     #Wheel base of vehicle in mm
+
+# #we calculate velocity instructions of left and right wheel
+# # Vr/Vl cm must be travelled in every 0.1 seconds
+# for idx, val in enumerate(simulation_time):
+#     v = qr[3,idx]
+#     omega = qr[4,idx]
     
-    bot.drive_direct(int(Vr), int(Vl))
-    time.sleep(1) #robot will go V mm for 0.9 sec
+#     Vl = v - omega*l/2 
+#     Vr = v + omega*l/2 
 
-# Stop the bot
-bot.drive_stop()
+#     print([idx, val, Vl, Vr])
+    
+#     bot.drive_direct(int(Vr), int(Vl))
+#     time.sleep(1) #robot will go V mm for 0.9 sec
 
-bot.power() #go back to passive mode
-bot.stop() #Puts the Create 2 into OFF mode.
-bot.close() # Close the connection
+# # Stop the bot
+# bot.drive_stop()
+
+# bot.power() #go back to passive mode
+# bot.stop() #Puts the Create 2 into OFF mode.
+# bot.close() # Close the connection
