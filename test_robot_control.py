@@ -6,7 +6,7 @@ Created on Mon Nov  1 12:55:30 2021
 """
 
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 #%% This is the kinematic model of the diff drive for simulations
 def kinematicModel(u,q):
