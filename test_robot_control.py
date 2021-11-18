@@ -45,42 +45,66 @@ def desiredPathSineWave(t,totalSim):
     vr     = np.sqrt(xr_dot**2+yr_dot**2);
     omegar = thetar_dot;
     
-    qr = [xr,yr,thetar,vr,omegar]
-    return qr
+    qr = [xr,yr,thetar]
+    ur = [vr, omegar]
+    return qr, ur
 
 #%% Here we define the Circular desired path function ------------------
 def desiredPathCircle(t,totalSim):
     x0 = 500 #mm radius circular motion
     y0 = 0
     
-    thetar = t*(2*np.pi/totalSim)
-    xr = np.cos(thetar)*x0 - np.sin(thetar)*y0
-    yr = np.sin(thetar)*x0 + np.cos(thetar)*y0
+    r = t*(2*np.pi/totalSim) #rotation angle for time t
+    r_dot = 2*np.pi/totalSim #derivative of r wrt t
     
-    thetar_dot = 2*np.pi/totalSim
-    xr_dot = thetar_dot*-np.sin(thetar)*x0 - thetar_dot*np.cos(thetar)*y0
-    yr_dot = thetar_dot*np.cos(thetar)*x0 - thetar_dot*np.sin(thetar)*y0
+    xr = np.cos(r)*x0 - np.sin(r)*y0
+    yr = np.sin(r)*x0 + np.cos(r)*y0
+    
+    xr_dot = r_dot*-np.sin(r)*x0 - r_dot*np.cos(r)*y0
+    yr_dot = r_dot*np.cos(r)*x0 - r_dot*np.sin(r)*y0
+    
+    thetar = np.arctan2(xr_dot,yr_dot);
+    
+    #desired second derivatives
+    xr_ddot = x0*(r_dot**2)*-np.sin(r) - y0*(r_dot**2)*np.cos(r)
+    yr_ddot = x0*(r_dot**2)*np.cos(r) - y0*(r_dot**2)*np.sin(r)
+
+    #desired theta derivative
+    thetar_dot = (yr_ddot - xr_ddot*np.tan(thetar))/(xr_dot*(1+np.tan(thetar)**2));
     
     omega  = thetar_dot
     vr     = np.sqrt(xr_dot*xr_dot+yr_dot*yr_dot)
     
-    qr = [xr,yr,thetar,vr,omega]
-    return qr
+    qr = [xr,yr,thetar]
+    ur = [vr, omega]
+    return qr, ur
 
 #%% Here we create the desired path for simulation -----------
 
-#we create a simulation of 36 seconds.
-#simulation runs in every 0.1 seconds.
-totalTime = 20 #secs
+#we create a simulation of totalTime seconds.
+#simulation runs in every 1 seconds.
+totalTime = 36 #secs
 simulation_time = np.arange(0,totalTime,1)
 
 #desired pose (trajectory) of the vehicle in every time instant
-qr = np.zeros([5,np.size(simulation_time)])
+qr = np.zeros([3,np.size(simulation_time)])
+ur = np.zeros([2,np.size(simulation_time)])
+
 for idx, t in enumerate(simulation_time):
-    #qr[:,idx] = desiredPathCircle(t,totalTime);
-    qr[:,idx] = desiredPathSineWave(t,totalTime);
+    #qr[:,idx], ur[:,idx] = desiredPathCircle(t,totalTime);
+    qr[:,idx], ur[:,idx] = desiredPathSineWave(t,totalTime);
 
 
+fig, ax = plt.subplots()
+ax.plot(qr[0,:],qr[1,:],'.');
+ax.quiver(qr[0,:], qr[1,:], np.sin(qr[2,:]), np.cos(qr[2,:]))
+
+for t in simulation_time: #forloop that is Time long. idk? maybe i'm doing it wrong.
+    ax.annotate("t="+str(simulation_time[t]),(qr[0,t],qr[1,t]))
+    
+ax.grid() #draws a grid
+ax.set_aspect('equal', 'box')
+   
 
 #%% --- Simulations of the Robot -------------------------------
 
