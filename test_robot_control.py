@@ -8,32 +8,43 @@ Created on Mon Nov  1 12:55:30 2021
 import numpy as np
 import matplotlib.pyplot as plt
 
+#%% Plots all positions of the robot during motion
+def plotScene(qr):
+    fig, ax = plt.subplots()
+    ax.plot(qr[0,:],qr[1,:],linestyle=':',marker='h');
+    ax.quiver(qr[0,:], qr[1,:], np.cos(qr[2,:]), np.sin(qr[2,:]))
+
+
+    for t in simulation_time: #forloop that is Time long. idk? maybe i'm doing it wrong.
+        ax.annotate("t="+str(simulation_time[t]),(qr[0,t],qr[1,t]))
+        
+    ax.grid() #draws a grid
+
 #%% This is the kinematic model of the diff drive for simulations
 def kinematicModel(u,q):
     # Kinematic Model of the diff drive robot
-    l = 0.125; 
+    l = 1; 
     theta = q[2];
     
     xdot = l*np.cos(theta)*u[0]
     ydot = l*np.sin(theta)*u[0]
     thetadot = l*u[1]
     
-    qdot = [xdot, ydot, thetadot]
+    qdot = np.array([xdot, ydot, thetadot])
     return qdot
-
 
 #%% Here we define the Sin Wave desired path function ------------------
 def desiredPathSineWave(t,totalSim):    
     yWidth = 300
-    xWidth = 50
+    xWidth = 75
 
-    xr = t*xWidth #robot will move xWidth mm in x direction for every t seconds
-    yr = np.sin(2*np.pi*t/totalSim) * yWidth #robot will move between -/+ yWidth mm in y
+    xr = xWidth * t #robot will move xWidth mm in x direction for every t seconds
+    yr = yWidth * np.sin(2*np.pi*t/totalSim) #robot will move between -/+ yWidth mm in y
     
     xr_dot = xWidth
-    yr_dot = (2*np.pi/totalSim)*np.cos(2*np.pi*t/totalSim)*yWidth
+    yr_dot = yWidth * (2*np.pi/totalSim) * np.cos(2*np.pi*t/totalSim)
     
-    thetar = np.arctan2(xr_dot,yr_dot);
+    thetar = np.arctan2(yr_dot,xr_dot);
     
     #desired second derivatives
     xr_ddot = 0;
@@ -83,7 +94,7 @@ def desiredPathCircle(t,totalSim):
 
 #we create a simulation of totalTime seconds.
 #simulation runs in every 1 seconds.
-totalTime = 36 #secs
+totalTime = 15 #secs
 simulation_time = np.arange(0,totalTime,1)
 
 #desired pose (trajectory) of the vehicle in every time instant
@@ -95,57 +106,53 @@ for idx, t in enumerate(simulation_time):
     qr[:,idx], ur[:,idx] = desiredPathSineWave(t,totalTime);
 
 
-fig, ax = plt.subplots()
-ax.plot(qr[0,:],qr[1,:],'.');
-ax.quiver(qr[0,:], qr[1,:], np.sin(qr[2,:]), np.cos(qr[2,:]))
-
-for t in simulation_time: #forloop that is Time long. idk? maybe i'm doing it wrong.
-    ax.annotate("t="+str(simulation_time[t]),(qr[0,t],qr[1,t]))
-    
-ax.grid() #draws a grid
-ax.set_aspect('equal', 'box')
+plotScene(qr)
    
 
 #%% --- Simulations of the Robot -------------------------------
 
-# qSave = np.zeros([3,np.size(simulation_time)])
-# q = [0,0,0.56]
-# for idx, t in enumerate(simulation_time):
-#     ur = [qr[3,idx], qr[4,idx]]
-#     qdot = kinematicModel(ur,q)
+qSave = np.zeros([3,np.size(simulation_time)])
+
+q = np.array([0,0,1.2626]) #initial pose of the robot
+
+for idx, t in enumerate(simulation_time):
+    qSave [:,idx]= q
     
-#     q = q + qdot
-#     qSave [:,idx]= q
+    qdot = kinematicModel(ur[:,idx],qr[:,idx])
+    q = q + qdot
+    
+
+plotScene(qSave)
 
 #%% --- Actual Robot Experiments -------------------------------
 
-# from  pycreate2 import Create2
-# import time
+from  pycreate2 import Create2
+import time
 
-# bot = Create2("COM3")
+bot = Create2("COM3")
 
-# bot.start() # Start the Create 2
-# bot.safe()
+bot.start() # Start the Create 2
+bot.safe()
 
-# l = 235     #Wheel base of vehicle in mm
+l = 235     #Wheel base of vehicle in mm
 
-# #we calculate velocity instructions of left and right wheel
-# # Vr/Vl cm must be travelled in every 0.1 seconds
-# for idx, val in enumerate(simulation_time):
-#     v = qr[3,idx]
-#     omega = qr[4,idx]
+#we calculate velocity instructions of left and right wheel
+# Vr/Vl cm must be travelled in every 0.1 seconds
+for idx, val in enumerate(simulation_time):
+    v = ur[0,idx]
+    omega = ur[1,idx]
     
-#     Vl = v - omega*l/2 
-#     Vr = v + omega*l/2 
+    Vl = v - omega*l/2 
+    Vr = v + omega*l/2 
 
-#     print([idx, val, Vl, Vr])
+    print([idx, val, Vl, Vr])
     
-#     bot.drive_direct(int(Vr), int(Vl))
-#     time.sleep(1) #robot will go V mm for 0.9 sec
+    bot.drive_direct(int(Vr), int(Vl))
+    time.sleep(1) #robot will go V mm for 0.9 sec
 
-# # Stop the bot
-# bot.drive_stop()
+# Stop the bot
+bot.drive_stop()
 
-# bot.power() #go back to passive mode
-# bot.stop() #Puts the Create 2 into OFF mode.
-# bot.close() # Close the connection
+bot.power() #go back to passive mode
+bot.stop() #Puts the Create 2 into OFF mode.
+bot.close() # Close the connection
