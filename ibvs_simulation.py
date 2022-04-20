@@ -38,20 +38,40 @@ def project_to_image_plane(pointCloud,camPose):
     pixel_coord = np.vstack([u,v])
     return pixel_coord
 
+#%% Constructs the jacobian matrix from image pixels and depth of each point
+def jacobian_matrix(pixel_coord,pixel_dist):
+    
+    u = pixel_coord[0,:]
+    v = pixel_coord[1,:]
+    z = pixel_dist
+    
+    J = np.zeros([len(z)*2, 6])
+    
+    for i in range(0, len(z)):
+        J[2*i,:] = np.array([-1/z[i],   0,       u[i]/z[i],   u[i]*v[i],   -(1+u[i]**2),  v[i]])
+        J[2*i+1,:] = np.array([ 0,     -1/z[i],  v[i]/z[i],   1+v[i]**2,   -u[i]*v[i],   -u[i]])
+
+    return J
+
 #%%
 #initial (q0) and desired (qr) pose of the vehicle
-q0 = np.array([1, 1, 12, np.pi/6, 0, 0])
-qr = np.array([0, 0, 40, 0, 0, 0])
+q0 = np.array([2, 2, 15, 0, 0, 0])
+qr = np.array([0, 0, 10, 0, 0, 0])
 
-pointCloud = np.array([[-1,-1,0,1],
-                       [-1, 1,0,1],
-                       [ 1, 1,0,1],
-                       [ 1,-1,0,1]]).T
+pointCloud = np.array([[-1,-1,-1,1],
+                       [-1, 1,-1,1],
+                       [ 1, 1,-1,1],
+                       [ 1,-1,-1,1]]).T
 
+actual_pixel_coord = project_to_image_plane(pointCloud, q0)
 des_pixel_coord = project_to_image_plane(pointCloud, qr)
 
+M = jacobian_matrix(actual_pixel_coord, pointCloud[2,:])
 
 plt.scatter(des_pixel_coord[0,:], des_pixel_coord[1,:],c ="blue")
-plt.xlim(0, 640)
-plt.ylim(0, 480) 
+plt.plot(des_pixel_coord[0,[0,1,2,3,0]], des_pixel_coord[1,[0,1,2,3,0]])
+plt.scatter(actual_pixel_coord[0,:], actual_pixel_coord[1,:],c ="red")
+plt.plot(actual_pixel_coord[0,[0,1,2,3,0]], actual_pixel_coord[1,[0,1,2,3,0]])
+plt.xlim(0, 2*ox)
+plt.ylim(0, 2*oy) 
 
