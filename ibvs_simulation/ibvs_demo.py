@@ -26,6 +26,7 @@ pointCloud = np.array([[-1,-1,1,1],
                        [ 1, 1,1,1],
                        [ 1,-1,1,1]]).T
 
+#initial pixel coordinates of pointcloud for actual and desired pose
 act_pixel_coord = extract_pixel_coordinates(pointCloud, K, q0)
 des_pixel_coord = extract_pixel_coordinates(pointCloud, K, qr)
 
@@ -33,9 +34,10 @@ plotScene(act_pixel_coord, des_pixel_coord)
 
 #%%
 q = q0
-mse = np.square(np.subtract(q, qr)).mean()
+mse = 10
 
-while mse > 0.001:
+#we run this loop until the 2d projection error is small enough
+while mse > 1e-05:
     
     #We are projecting 3d points into 2d in image space, but not in pixel space
     act_2d_coord,z = extract_2d_coordinates(pointCloud,q)
@@ -46,7 +48,7 @@ while mse > 0.001:
     inv_j = np.linalg.pinv(J)
 
     point_2d_err = (act_2d_coord - des_2d_coord).T
-    qdot = -0.125 * np.matmul(inv_j, point_2d_err.flatten())
+    qdot = -0.25 * np.matmul(inv_j, point_2d_err.flatten())
 
     #update the pose of the camera    
     q = q - qdot
@@ -55,5 +57,5 @@ while mse > 0.001:
     act_pixel_coord = extract_pixel_coordinates(pointCloud, K, q)
     plotScene(act_pixel_coord, des_pixel_coord)
     
-    mse = np.square(np.subtract(q, qr)).mean()
+    mse = np.square(point_2d_err).mean()
     #print(mse)

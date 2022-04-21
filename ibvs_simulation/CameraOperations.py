@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-#%%
+#%% Plots image of the pointcloud pixels for actual and desired pose
 def plotScene(act_pixel_coord,des_pixel_coord):
     plt.figure()
     plt.scatter(des_pixel_coord[0,:], des_pixel_coord[1,:],c ="blue")
@@ -31,7 +31,7 @@ def euler_trans(pose):
     trans_matrix = np.linalg.multi_dot([Tr, Rx, Ry, Rz])
     return trans_matrix
 
-#%% Point cloud projection to image plane
+#%% Point cloud projection to image plane in pixel coordinates
 def extract_pixel_coordinates(pointCloud,intrinsic_matrix,camPose):
     world_to_cam = euler_trans(camPose)
     
@@ -42,7 +42,7 @@ def extract_pixel_coordinates(pointCloud,intrinsic_matrix,camPose):
     pixel_coord = np.vstack([u,v])
     return pixel_coord
 
-#%% Point cloud projection to image plane
+#%% Point cloud projection to image space in 2d coordinates
 def extract_2d_coordinates(pointCloud,camPose):
     world_to_cam = euler_trans(camPose)
     
@@ -53,7 +53,7 @@ def extract_2d_coordinates(pointCloud,camPose):
     image_features = np.vstack([x,y])
     return image_features, image_space_coord[2,:]
 
-#%% Constructs the jacobian matrix from image pixels and depth of each point
+#%% Constructs the jacobian matrix from 2d point projections in image space and depth of each point
 def jacobian_matrix_pc(point_2d_coord, z):
     
     x = point_2d_coord[0,:]
