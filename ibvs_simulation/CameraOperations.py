@@ -17,7 +17,14 @@ def plotScene(act_pixel_coord,des_pixel_coord):
     plt.scatter(act_pixel_coord[0,:], act_pixel_coord[1,:],c ="red")
     plt.plot(act_pixel_coord[0,[0,1,2,3,0]], act_pixel_coord[1,[0,1,2,3,0]])
     plt.xlim(0, 640)
-    plt.ylim(0, 480) 
+    plt.ylim(0, 480)
+    
+#%% Plots all positions of the robot during motion
+def plotPoseScene(qr):
+    fig, ax = plt.subplots()
+    ax.plot(qr[0,:],qr[1,:],linestyle=':',marker='h');
+    ax.quiver(qr[0,:], qr[1,:], np.cos(qr[2,:]), np.sin(qr[2,:]))        
+    ax.grid() #draws a grid
 
 #%% Euler Transformation from Pose to Matrix
 def euler_trans(pose):

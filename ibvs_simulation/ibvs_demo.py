@@ -5,11 +5,13 @@ Created on Wed Apr 20 10:47:32 2022
 @author: sdinc
 """
 import numpy as np
+import matplotlib.pyplot as plt
 
 from CameraOperations import extract_2d_coordinates
 from CameraOperations import extract_pixel_coordinates
 from CameraOperations import jacobian_matrix_pc
 from CameraOperations import plotScene
+from CameraOperations import plotPoseScene
 
 #%% Intrinsic Camera Parameters
 
@@ -19,7 +21,7 @@ K = np.array([[f,d,ox,0],[0,f,oy,0],[0,0,1,0],[0,0,0,1]])
 #%%
 #initial (q0) and desired (qr) pose of the vehicle
 #units are considered in cm
-q0 = np.array([10, 30, 10, 0, 0, 0])
+q0 = np.array([40, 30, 0, 0, 0, 0])
 qr = np.array([ 0, 30, 100, 0, 0, 0])
 
 
@@ -40,6 +42,12 @@ q = q0
 qSave = q0
 mse = 10
 
+pp = np.zeros([3,1])
+pp[0] = q0[2]
+pp[1] = -q0[0]
+pp[2] = q0[4]
+#plotPoseScene(pp)
+
 #we run this loop until the 2d projection error is small enough
 while mse > 1e-05:
     
@@ -53,15 +61,27 @@ while mse > 1e-05:
 
     point_2d_err = (act_2d_coord - des_2d_coord).T
     qdot = -0.125 * np.matmul(inv_j, point_2d_err.flatten())
-    
-    print([qdot[0], qdot[2]])
 
     #update the pose of the camera    
     q = q - qdot
 
     #calculate pixel coordinates from new pose and plot
     act_pixel_coord = extract_pixel_coordinates(pointCloud, K, q)
-    plotScene(act_pixel_coord, des_pixel_coord)
+    #plotScene(act_pixel_coord, des_pixel_coord)
     
     mse = np.square(point_2d_err).mean()
     #print(mse)
+    
+    pr = np.zeros([3,1])
+    pr[0] = q[2]
+    pr[1] = -q[0]
+    pr[2] = q[4]
+    pp = np.append(pp,pr,axis=1)
+
+#%% 
+
+plotPoseScene(pp)
+plt.scatter(pointCloud[2,:],pointCloud[0,:])
+plt.axis('equal')
+plt.xlabel("Z")
+plt.ylabel("X")
