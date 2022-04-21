@@ -33,7 +33,7 @@ def euler_trans(pose):
 
 #%% Point cloud projection to image plane in pixel coordinates
 def extract_pixel_coordinates(pointCloud,intrinsic_matrix,camPose):
-    world_to_cam = euler_trans(camPose)
+    world_to_cam = np.linalg.inv(euler_trans(camPose))
     
     image_space_coord = np.linalg.multi_dot([intrinsic_matrix, world_to_cam, pointCloud])
     u = image_space_coord[0,:]/image_space_coord[2,:]

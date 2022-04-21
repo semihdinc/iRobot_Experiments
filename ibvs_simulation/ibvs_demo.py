@@ -18,13 +18,15 @@ K = np.array([[f,d,ox,0],[0,f,oy,0],[0,0,1,0],[0,0,0,1]])
 
 #%%
 #initial (q0) and desired (qr) pose of the vehicle
-q0 = np.array([5, 0, 20, 0, 0, 0])
-qr = np.array([0, 0, 10, 0, 0, 0])
+#units are considered in cm
+q0 = np.array([10, 30, 10, 0, 0, 0])
+qr = np.array([ 0, 30, 100, 0, 0, 0])
 
-pointCloud = np.array([[-1,-1,1,1],
-                       [-1, 1,1,1],
-                       [ 1, 1,1,1],
-                       [ 1,-1,1,1]]).T
+
+pointCloud = np.array([[-10,20,200,1],
+                       [ 10,20,200,1],
+                       [ 10,40,200,1],
+                       [-10,40,200,1]]).T
 
 #initial pixel coordinates of pointcloud for actual and desired pose
 act_pixel_coord = extract_pixel_coordinates(pointCloud, K, q0)
@@ -32,8 +34,10 @@ des_pixel_coord = extract_pixel_coordinates(pointCloud, K, qr)
 
 plotScene(act_pixel_coord, des_pixel_coord)
 
+
 #%%
 q = q0
+qSave = q0
 mse = 10
 
 #we run this loop until the 2d projection error is small enough
@@ -48,7 +52,9 @@ while mse > 1e-05:
     inv_j = np.linalg.pinv(J)
 
     point_2d_err = (act_2d_coord - des_2d_coord).T
-    qdot = -0.25 * np.matmul(inv_j, point_2d_err.flatten())
+    qdot = -0.125 * np.matmul(inv_j, point_2d_err.flatten())
+    
+    print([qdot[0], qdot[2]])
 
     #update the pose of the camera    
     q = q - qdot
