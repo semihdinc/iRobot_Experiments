@@ -12,6 +12,7 @@ from CameraOperations import extract_pixel_coordinates
 from CameraOperations import jacobian_matrix_pc
 from CameraOperations import plotScene
 from CameraOperations import plotPoseScene
+from CameraOperations import kinematicModel
 
 #%% Intrinsic Camera Parameters
 
@@ -21,7 +22,7 @@ K = np.array([[f,d,ox,0],[0,f,oy,0],[0,0,1,0],[0,0,0,1]])
 #%%
 #initial (q0) and desired (qr) pose of the vehicle
 #units are considered in cm
-q0 = np.array([40, 30, 0, 0, 0, 0])
+q0 = np.array([100, 30, 0, 0, np.pi/6, 0])
 qr = np.array([ 0, 30, 100, 0, 0, 0])
 
 
@@ -38,18 +39,15 @@ plotScene(act_pixel_coord, des_pixel_coord)
 
 
 #%%
-q = q0
-qSave = q0
-mse = 10
+mse = 10 #mean squared pixel error
 
-pp = np.zeros([3,1])
-pp[0] = q0[2]
-pp[1] = q0[0]
-pp[2] = q0[4]
+q = q0
+qSave = np.array([q0[2],q0[0],q0[4]]).reshape((3,1)) 
 #plotPoseScene(pp)
 
 #we run this loop until the 2d projection error is small enough
-while mse > 1e-05:
+#while mse > 1e-05:
+for i in range(0, 30):
     
     #We are projecting 3d points into 2d in image space, but not in pixel space
     act_2d_coord,z = extract_2d_coordinates(pointCloud,q)
@@ -62,8 +60,22 @@ while mse > 1e-05:
     point_2d_err = (act_2d_coord - des_2d_coord).T
     qdot = -0.125 * np.matmul(inv_j, point_2d_err.flatten())
 
+    vr     = np.sqrt(qdot[2]**2+qdot[0]**2)
+    omegar = qdot[4]
+    u = np.array([vr,omegar])
+
+    #kinematic model. u is 
+    #xdot, zdot, thetadot = kinematicModel(u, q[4])
+    l = 1
+    theta = q[4]
+    xdot = l*np.cos(theta)*u[0]
+    zdot = l*np.sin(theta)*u[0]
+    thetadot = l*u[1]
+
     #update the pose of the camera    
+    #q = q - np.array([xdot,0,zdot,0,thetadot,0])
     q = q - qdot
+
 
     #calculate pixel coordinates from new pose and plot
     act_pixel_coord = extract_pixel_coordinates(pointCloud, K, q)
@@ -72,15 +84,12 @@ while mse > 1e-05:
     mse = np.square(point_2d_err).mean()
     #print(mse)
     
-    pr = np.zeros([3,1])
-    pr[0] = q[2]
-    pr[1] = q[0]
-    pr[2] = q[4]
-    pp = np.append(pp,pr,axis=1)
+    q_2d = np.array([q[2],q[0],q[4]]).reshape((3,1))
+    qSave = np.append(qSave,q_2d,axis=1)
 
 #%% 
 
-plotPoseScene(pp)
+plotPoseScene(qSave)
 plt.scatter(pointCloud[2,:],pointCloud[0,:])
 plt.gca().invert_yaxis()
 plt.axis('equal')

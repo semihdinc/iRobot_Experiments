@@ -87,3 +87,14 @@ def jacobian_matrix_pixel(pixel_coord,z):
         J[2*i+1,:] = np.array([ 0,     -1/z[i],  v[i]/z[i],   1+v[i]**2,   -u[i]*v[i],   -u[i]])
 
     return J
+
+#%% This is the kinematic model of the diff drive for simulations
+def kinematicModel(u,theta):
+    # Kinematic Model of the diff drive robot
+    l = 1; 
+    
+    xdot = l*np.cos(theta)*u[0]
+    ydot = l*np.sin(theta)*u[0]
+    thetadot = l*u[1]
+    
+    return xdot, ydot, thetadot
