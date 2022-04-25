@@ -44,7 +44,7 @@ mse = 10
 
 pp = np.zeros([3,1])
 pp[0] = q0[2]
-pp[1] = -q0[0]
+pp[1] = q0[0]
 pp[2] = q0[4]
 #plotPoseScene(pp)
 
@@ -74,7 +74,7 @@ while mse > 1e-05:
     
     pr = np.zeros([3,1])
     pr[0] = q[2]
-    pr[1] = -q[0]
+    pr[1] = q[0]
     pr[2] = q[4]
     pp = np.append(pp,pr,axis=1)
 
@@ -82,6 +82,7 @@ while mse > 1e-05:
 
 plotPoseScene(pp)
 plt.scatter(pointCloud[2,:],pointCloud[0,:])
+plt.gca().invert_yaxis()
 plt.axis('equal')
 plt.xlabel("Z")
 plt.ylabel("X")
